@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
-import jwt_decode from "jwt-decode";
+import jwt_decode from 'jwt-decode'
 import jwt from 'jsonwebtoken'
-import { parse } from 'uuid';
+import { parse } from 'uuid'
 
-const idpBaseUrl = process.env.NODE_ENV === 'production' ? 'https://loginpage.onrender.com' : 'http://foo.example.com:2999'
-
+var idpBaseUrl = 'https://loginpage.onrender.com'
 var clientId = null
 var redirectSignIn = null
 var redirectSignOut = null
@@ -13,6 +12,7 @@ function configure(cfg) {
     clientId = cfg.clientId
     redirectSignIn = cfg.redirectSignIn
     redirectSignOut = cfg.redirectSignOut
+    if (cfg.baseUrl) idpBaseUrl = cfg.baseUrl
 }
 
 function signIn() {
