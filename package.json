@@ -1,0 +1,19 @@
+{
+  "name": "loginpage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickgarfield/loginpage-js.git"
+  },
+  "author": "Feather <hello@feather.id> (https://feather.id)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickgarfield/loginpage-js/issues"
+  },
+  "homepage": "https://github.com/nickgarfield/loginpage-js#readme"
+}
