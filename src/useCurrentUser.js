@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-// const React = require('react')
 
 function useCurrentUser() {
     const [authState, setAuthState] = useState({
