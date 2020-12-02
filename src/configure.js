@@ -1,5 +1,5 @@
 var protocol = 'https://'
-var host = 'loginpage.onrender.com'
+var host = 'login.page'
 var appId = null
 var clientId = null
 var redirectUrl = null
