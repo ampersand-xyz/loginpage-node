@@ -1,8 +1,8 @@
-import { baseUrl, clientId, redirectUrl } from './configure'
+import { protocol, host, appId, clientId, redirectUrl } from './configure'
 
 function signIn() {
     const state = 'abc' // TODO randomize
-    window.location.replace(`${baseUrl}/m?clientId=${clientId}&redirectUri=${redirectUrl}&state=${state}`)
+    window.location.replace(`${protocol}${appId}.${host}/m?clientId=${clientId}&redirectUri=${redirectUrl}&state=${state}`)
 }
 
 export default signIn
