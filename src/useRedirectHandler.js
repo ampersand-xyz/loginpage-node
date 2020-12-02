@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { baseUrl, redirectSignIn } from './configure'
+import { baseUrl, clientId, redirectUrl } from './configure'
 
 function useRedirectHandler(callback) {
     useEffect(() => {
@@ -10,7 +10,7 @@ function useRedirectHandler(callback) {
 
         // TODO verify state
 
-        fetch(`${baseUrl}/api/token?grant_type=${grantType}&code=${code}&redirect_uri=${redirectSignIn}&client_id=${clientId}`)
+        fetch(`${baseUrl}/api/token?grant_type=${grantType}&code=${code}&redirect_uri=${redirectUrl}&client_id=${clientId}`)
             .then(res => res.json())
             .then(tokens => {
 
