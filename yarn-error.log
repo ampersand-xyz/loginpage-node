@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js add next
 
 PATH: 
   /Users/garfield/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Library/Apple/bin:/usr/local/go/bin:/Users/garfield/.cargo/bin:/usr/local/opt/go/libexec/bin:/Users/garfield/go/bin:/Users/garfield/Library/Python/2.7/bin:/usr/local/go/bin:/usr/local/opt/go/libexec/bin:/Users/garfield/go/bin:/Users/garfield/Library/Python/2.7/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  SyntaxError: /Users/garfield/node/loginpage-js/package.json: Unexpected token } in JSON at position 752
+  SyntaxError: /Users/garfield/node/loginpage-js/package.json: Unexpected token } in JSON at position 769
       at JSON.parse (<anonymous>)
       at /usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:1625:59
       at Generator.next (<anonymous>)
@@ -24,18 +24,19 @@ Trace:
 npm manifest: 
   {
     "name": "@nickgarfield/loginpage",
-    "version": "0.0.5",
+    "version": "0.0.7",
     "description": "",
-    "main": "src/index.js",
+    "main": "dist/index.js",
     "scripts": {
       "build": "webpack --mode production",
-      "test": "echo \"Error: no test specified\" && exit 1"
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "prepublish": "npm run build"
     },
     "repository": {
       "type": "git",
       "url": "git+https://github.com/nickgarfield/loginpage-js.git"
     },
-    "author": "Feather <hello@feather.id> (https://feather.id)",
+    "author": "Nick Garfield <nick@and.xyz> (https://www.and.xyz)",
     "license": "ISC",
     "bugs": {
       "url": "https://github.com/nickgarfield/loginpage-js/issues"
@@ -47,7 +48,6 @@ npm manifest:
       "jsonwebtoken": "^8.5.1",
       "jwt-decode": "^3.1.2",
       "react": "^17.0.1",
-      "uuid": "^8.3.1",
     },
     "devDependencies": {
       "@babel/core": "^7.12.9",

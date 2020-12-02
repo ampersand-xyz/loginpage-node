@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/nickgarfield/loginpage-js.git"
   },
-  "author": "Nick Garfield <nick@and.xyz> (https://and.xyz)",
+  "author": "Nick Garfield <nick@and.xyz> (https://www.and.xyz)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nickgarfield/loginpage-js/issues"
@@ -23,8 +23,8 @@
     "cookies": "^0.8.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
-    "react": "^17.0.1",
-    "uuid": "^8.3.1"
+    "next": "^10.0.3",
+    "react": "^17.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
