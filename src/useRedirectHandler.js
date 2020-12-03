@@ -10,7 +10,7 @@ function useRedirectHandler(callback) {
 
         // TODO verify state
 
-        fetch(`${protocol}${host}/api/token?grant_type=${grantType}&code=${code}&redirect_uri=${redirectUrl}&client_id=${clientId}`)
+        fetch(`${protocol}www.${host}/api/token?grant_type=${grantType}&code=${code}&redirect_uri=${redirectUrl}&client_id=${clientId}`)
             .then(res => res.json())
             .then(tokens => {
 
