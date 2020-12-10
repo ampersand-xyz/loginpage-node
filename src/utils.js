@@ -15,7 +15,7 @@ async function parseUserFromIdToken(idToken) {
         email: parsedToken.email,
         isEmailVerified: parsedToken.email_verified,
         accountId: parsedToken.acc,
-        roles: parsedToken.rol,
+        accounts: parsedToken.accs,
     }
 }
 
