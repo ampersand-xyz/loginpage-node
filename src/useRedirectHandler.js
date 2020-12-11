@@ -25,10 +25,4 @@ function useRedirectHandler(callback) {
     }, [])
 }
 
-                // Save tokens to localstorage and cookies
-                // const cookies = require('cookie-cutter')
-                // cookies.set('auth-idtoken', tokens.id_token)
-                // localStorage.setItem('auth-session', JSON.stringify(tokens))
-                // notifyObservers()
-
 export default useRedirectHandler
