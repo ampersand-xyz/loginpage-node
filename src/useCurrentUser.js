@@ -9,9 +9,9 @@ function useCurrentUser() {
 
     useEffect(() => {
         const unsubscribe = onStateChange((u) => {
-            if (JSON.stringify(u) !== JSON.stringify(state.currentUser))
-                setState({ isLoading: false, currentUser: u })
-            else if (state.loading) setState({ loading: false })
+            if (JSON.stringify(u) !== JSON.stringify(authState.currentUser))
+                setAuthState({ loading: false, currentUser: u })
+            else if (authState.loading) setAuthState({ loading: false })
         })
         return () => unsubscribe()
     }, [])
