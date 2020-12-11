@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { protocol, host, clientId, redirectUrl } from './configure'
+import { updateAuthState } from './utils'
 
 function useRedirectHandler(callback) {
     useEffect(() => {
@@ -12,12 +13,8 @@ function useRedirectHandler(callback) {
 
         fetch(`${protocol}www.${host}/api/token?grant_type=${grantType}&code=${code}&redirect_uri=${redirectUrl}&client_id=${clientId}`)
             .then(res => res.json())
-            .then(tokens => {
-
-                // Save tokens to localstorage and cookies
-                const cookies = require('cookie-cutter')
-                cookies.set('auth-idtoken', tokens.id_token)
-                localStorage.setItem('auth-session', JSON.stringify(tokens))
+            .then(tokens => await updateAuthState(tokens))
+            .then(() => {
                 if (callback) callback()
             })
             .catch(err => {
@@ -27,5 +24,11 @@ function useRedirectHandler(callback) {
             })
     }, [])
 }
+
+                // Save tokens to localstorage and cookies
+                // const cookies = require('cookie-cutter')
+                // cookies.set('auth-idtoken', tokens.id_token)
+                // localStorage.setItem('auth-session', JSON.stringify(tokens))
+                // notifyObservers()
 
 export default useRedirectHandler

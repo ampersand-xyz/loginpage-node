@@ -1,10 +1,10 @@
 import { parseUserFromIdToken } from './utils'
 
 async function getCurrentUser() {
-    const authSession = JSON.parse(localStorage.getItem('auth-session'))
-    if (!authSession) return null
+    const authState = JSON.parse(localStorage.getItem('auth-session'))
+    if (!authState) return null
     try {
-        return await parseUserFromIdToken(authSession.id_token)
+        return await parseUserFromIdToken(authState.id_token)
     } catch (e) {
         console.log(e)
     }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { onStateChange } from './observers'
 
 function useCurrentUser() {
     const [authState, setAuthState] = useState({
@@ -7,19 +8,12 @@ function useCurrentUser() {
     })
 
     useEffect(() => {
-        getCurrentUser()
-            .then(currentUser => {
-                setAuthState({
-                    currentUser,
-                    loading: false,
-                })
-            })
-            .catch(e => {
-                setAuthState({
-                    currentUser: null,
-                    loading: false,
-                })
-            })
+        const unsubscribe = onStateChange((u) => {
+            if (JSON.stringify(u) !== JSON.stringify(state.currentUser))
+                setState({ isLoading: false, currentUser: u })
+            else if (state.loading) setState({ loading: false })
+        })
+        return () => unsubscribe()
     }, [])
 
     return { ...authState }

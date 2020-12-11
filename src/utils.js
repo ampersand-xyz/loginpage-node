@@ -1,6 +1,7 @@
 import { protocol, host } from './configure'
 import jwt from 'jsonwebtoken'
 import jwt_decode from 'jwt-decode'
+import { notifyObservers } from './observers'
 
 async function parseUserFromIdToken(idToken) {
     if (!idToken) return null
@@ -19,6 +20,27 @@ async function parseUserFromIdToken(idToken) {
     }
 }
 
-export { 
+async function updateAuthState(authState) {
+    const cookies = require('cookie-cutter')
+    
+    if (authState) {
+        cookies.set('auth-idtoken', authState.id_token)
+        localStorage.setItem('auth-session', JSON.stringify(authState))
+    } else {
+        cookies.set('auth-idtoken', '', { expires: new Date(0) })
+        localStorage.removeItem('auth-session')
+    }
+
+    var currentUser = null
+    try {
+        if (authState) currentUser = await parseUserFromIdToken()
+    } catch (e) {
+        console.log(e)
+    }
+    notifyObservers(currentUser)
+}
+
+export {
     parseUserFromIdToken,
+    updateAuthState,
 }
