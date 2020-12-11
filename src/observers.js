@@ -14,7 +14,7 @@ const onStateChange = observer => {
     }
 }
 
-const async notifyObservers = () => {
+const notifyObservers = async () => {
     return getCurrentUser()
         .then(currentUser => {
             observers.forEach(observer => observer(currentUser))

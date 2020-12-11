@@ -13,7 +13,7 @@ function useRedirectHandler(callback) {
 
         fetch(`${protocol}www.${host}/api/token?grant_type=${grantType}&code=${code}&redirect_uri=${redirectUrl}&client_id=${clientId}`)
             .then(res => res.json())
-            .then(tokens => await updateAuthState(tokens))
+            .then(tokens => updateAuthState(tokens))
             .then(() => {
                 if (callback) callback()
             })
