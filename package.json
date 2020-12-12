@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ampersand-xyz/loginpage-js.git"
+    "url": "git+https://github.com/ampersand-xyz/loginpage-node.git"
   },
   "author": "Nick Garfield <nick@and.xyz> (https://www.and.xyz)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ampersand-xyz/loginpage-js/issues"
+    "url": "https://github.com/ampersand-xyz/loginpage-node/issues"
   },
-  "homepage": "https://github.com/ampersand-xyz/loginpage-js#readme",
+  "homepage": "https://github.com/ampersand-xyz/loginpage-node#readme",
   "dependencies": {
     "cookie-cutter": "^0.2.0",
     "cookies": "^0.8.0",
