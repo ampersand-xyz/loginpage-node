@@ -1,6 +1,6 @@
 {
-  "name": "@nickgarfield/loginpage",
-  "version": "0.0.29",
+  "name": "@ampersand-xyz/loginpage",
+  "version": "0.0.30",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nickgarfield/loginpage-js.git"
+    "url": "git+https://github.com/ampersand-xyz/loginpage-js.git"
   },
   "author": "Nick Garfield <nick@and.xyz> (https://www.and.xyz)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nickgarfield/loginpage-js/issues"
+    "url": "https://github.com/ampersand-xyz/loginpage-js/issues"
   },
-  "homepage": "https://github.com/nickgarfield/loginpage-js#readme",
+  "homepage": "https://github.com/ampersand-xyz/loginpage-js#readme",
   "dependencies": {
     "cookie-cutter": "^0.2.0",
     "cookies": "^0.8.0",
