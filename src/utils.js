@@ -22,7 +22,6 @@ async function parseUserFromIdToken(idToken) {
 
 async function updateAuthState(authState) {
     const cookies = require('cookie-cutter')
-    
     if (authState) {
         cookies.set('auth-idtoken', authState.id_token)
         localStorage.setItem('auth-session', JSON.stringify(authState))
