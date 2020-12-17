@@ -16,7 +16,9 @@ async function parseUserFromIdToken(idToken) {
         const res = await fetch(`${protocol}www.${host}/api/.well-known/pem/${keyId}`)
         const pubKeys = await res.json()
         pubKey = pubKeys[keyId]
-        localStorage.setItem('auth-pubkeys', JSON.stringify(pubKeys))
+        if (typeof localStorage !== 'undefined') {
+            localStorage.setItem('auth-pubkeys', JSON.stringify(pubKeys))
+        }
     }
     const parsedToken = jwt.verify(idToken, pubKey, { algorithms: ['RS256'] })
     return {
