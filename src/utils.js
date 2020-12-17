@@ -7,9 +7,17 @@ async function parseUserFromIdToken(idToken) {
     if (!idToken) return null
     const header = jwt_decode(idToken, { header: true });
     const keyId = header.kid
-    const res = await fetch(`${protocol}www.${host}/api/.well-known/pem/${keyId}`)
-    const pubKeys = await res.json()
-    const pubKey = pubKeys[keyId]
+    var pubKey
+    if (typeof localStorage === 'undefined') {
+        const pubKeys = JSON.parse(localStorage.getItem(`auth-pubkeys`)) ?? {}
+        pubKey = pubKeys[keyId]
+    }
+    if (!pubKey) {
+        const res = await fetch(`${protocol}www.${host}/api/.well-known/pem/${keyId}`)
+        const pubKeys = await res.json()
+        pubKey = pubKeys[keyId]
+        localStorage.setItem('auth-pubkeys', JSON.stringify(pubKeys))
+    }
     const parsedToken = jwt.verify(idToken, pubKey, { algorithms: ['RS256'] })
     return {
         id: parsedToken.sub,
