@@ -9,8 +9,8 @@ async function parseUserFromIdToken(idToken) {
     const keyId = header.kid
     var pubKey
     if (typeof localStorage !== 'undefined') {
-        const pubKeys = JSON.parse(localStorage.getItem(`auth-pubkeys`)) ?? {}
-        pubKey = pubKeys[keyId]
+        const pubKeys = JSON.parse(localStorage.getItem(`auth-pubkeys`))
+        if (pubKeys) pubKey = pubKeys[keyId]
     }
     if (!pubKey) {
         const res = await fetch(`${protocol}www.${host}/api/.well-known/pem/${keyId}`)
