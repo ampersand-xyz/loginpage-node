@@ -8,7 +8,7 @@ async function parseUserFromIdToken(idToken) {
     const header = jwt_decode(idToken, { header: true });
     const keyId = header.kid
     var pubKey
-    if (typeof localStorage === 'undefined') {
+    if (typeof localStorage !== 'undefined') {
         const pubKeys = JSON.parse(localStorage.getItem(`auth-pubkeys`)) ?? {}
         pubKey = pubKeys[keyId]
     }
