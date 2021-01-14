@@ -8,9 +8,9 @@ async function signIn() {
     try {
         var domainRes = await fetch(`https://www.login.page/api/domains?app_id=${appId}`)
         domainRes = await domainRes.json()
-        customDomain = domainRes.domain
+        customDomain = domainRes.name
     } catch (e) {
-        // Do nothing
+        console.log(e)
     }
     
     // Redirect to the custom domain
