@@ -3,7 +3,7 @@ import { updateAuthState } from './utils'
 
 async function signOut() {
     try {
-        await updateAuthState(tokens)
+        await updateAuthState(null)
     } catch (e) {
         console.log(e)
     }
