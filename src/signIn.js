@@ -6,7 +6,7 @@ async function signIn() {
     // TODO Fetch custom domain for app id
     var customDomain = null
     try {
-        var domainRes = await fetch(`https://www.login.page/api/domains?app_id=${appId}`)
+        var domainRes = await fetch(`https://api.login.page/domains?app_id=${appId}`)
         domainRes = await domainRes.json()
         customDomain = domainRes.name
     } catch (e) {
