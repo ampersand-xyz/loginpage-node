@@ -7,6 +7,14 @@ function ProfilePage(props) {
 
     const { loading, currentUser } = Auth.useCurrentUser()
 
+    const ping = e => {
+        e.preventDefault()
+        fetch('/api/ping')
+            .then(res => res.json())
+            .then(res => console.log(res))
+            .catch(e => console.log(e))
+    }
+
     const signOut = e => {
         e.preventDefault()
         Auth.signOut().then(() => router.push('/'))
@@ -16,6 +24,7 @@ function ProfilePage(props) {
     return (
         <div>
             {currentUser && <p>{currentUser.email}</p>}
+            <button onClick={ping}>Ping</button>
             <button onClick={signOut}>Sign out</button>
         </div>
     )

@@ -8,9 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@ampersand-xyz/loginpage": "../",
+    "atob": "^2.1.2",
     "next": "10.0.6",
     "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "@ampersand-xyz/loginpage": "../"
+    "react-dom": "17.0.1"
   }
 }
