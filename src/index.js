@@ -3,6 +3,7 @@ import changeAccount from './changeAccount'
 import configure from './configure'
 import getCurrentUser from './getCurrentUser'
 import getCurrentUserSSR from './getCurrentUserSSR'
+import listKeyPairs from './listKeyPairs'
 import signIn from './signIn'
 import signOut from './signOut'
 import useCurrentUser from './useCurrentUser'
@@ -14,6 +15,7 @@ const Auth = {
     configure,
     getCurrentUser,
     getCurrentUserSSR,
+    listKeyPairs,
     signIn,
     signOut,
     useCurrentUser,
