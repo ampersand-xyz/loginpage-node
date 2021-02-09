@@ -6,7 +6,8 @@ async function authorize(publicKey, secretKey, scope) {
             method: 'POST',
             body: JSON.stringify({ 
                 'app_id': appId, 
-                'secret_key': secretKey
+                'secret_key': secretKey,
+                'scope': scope,
             }),
             headers: {
                 'Content-Type': 'application/json',
