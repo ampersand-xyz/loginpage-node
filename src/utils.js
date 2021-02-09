@@ -3,6 +3,20 @@ import jwt from 'jsonwebtoken'
 import jwt_decode from 'jwt-decode'
 import { notifyObservers } from './observers'
 
+function getIdToken(context) {
+    var idToken
+    if (context) {
+        const Cookies = require('cookies')
+        const cookies = new Cookies(context.req, context.res)
+        idToken = cookies.get('auth-idtoken')
+    } else if (localStorage !== undefined) {
+        const authState = JSON.parse(localStorage.getItem('auth-session'))
+        if (!authState) return null
+        idToken = authState.id_token
+    }
+    return idToken
+}
+
 async function parseUserFromIdToken(idToken) {
     if (!idToken) return null
     const header = jwt_decode(idToken, { header: true });
@@ -50,6 +64,7 @@ async function updateAuthState(authState) {
 }
 
 export {
+    getIdToken,
     parseUserFromIdToken,
     updateAuthState,
 }
