@@ -1,4 +1,5 @@
 import { appId, protocol, host } from './configure'
+import fetch from 'node-fetch'
 
 async function authorize(publicKey, secretKey, scope) {
     try {

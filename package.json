@@ -23,6 +23,7 @@
     "cookies": "^0.8.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
+    "node-fetch": "^2.6.1",
     "webpack-node-externals": "^2.5.2"
   },
   "peerDependencies": {

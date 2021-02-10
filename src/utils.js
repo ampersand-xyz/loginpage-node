@@ -2,6 +2,7 @@ import { protocol, host } from './configure'
 import jwt from 'jsonwebtoken'
 import jwt_decode from 'jwt-decode'
 import { notifyObservers } from './observers'
+import fetch from 'node-fetch'
 
 function getIdToken(context) {
     var idToken
