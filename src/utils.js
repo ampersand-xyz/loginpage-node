@@ -2,7 +2,7 @@ import { protocol, host } from './configure'
 import jwt from 'jsonwebtoken'
 import jwt_decode from 'jwt-decode'
 import { notifyObservers } from './observers'
-import fetch from 'node-fetch'
+import nodefetch from 'node-fetch'
 
 function getIdToken(context) {
     var idToken
@@ -28,8 +28,21 @@ async function parseUserFromIdToken(idToken) {
         if (pubKeys) pubKey = pubKeys[keyId]
     }
     if (!pubKey) {
-        const res = await fetch(`${protocol}api.${host}/.well-known/pem/${keyId}`)
-        const pubKeys = await res.json()
+        
+        console.log('A')
+        console.log(typeof fetch === 'undefined')
+
+        var globalFetch = typeof fetch === 'undefined' ? nodefetch : fetch
+        const pubKeysRes = await globalFetch(`${protocol}api.${host}/.well-known/pem/${keyId}`)
+        console.log('B')
+
+        console.log(pubKeysRes)
+        const pubKeys = await pubKeysRes.json()
+        
+        console.log('Got pub keys')
+        console.log(pubKeys)
+        
+
         pubKey = pubKeys[keyId]
         if (typeof localStorage !== 'undefined') {
             localStorage.setItem('auth-pubkeys', JSON.stringify(pubKeys))
