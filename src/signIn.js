@@ -1,4 +1,5 @@
 import { protocol, host, appId, clientId, redirectUrl } from './configure'
+import ffetch from './fetch'
 
 async function signIn() {
     const state = 'abc' // TODO randomize
@@ -6,7 +7,7 @@ async function signIn() {
     // TODO Fetch custom domain for app id
     var customDomain = null
     try {
-        var domainRes = await fetch(`https://api.login.page/domains?app_id=${appId}`)
+        var domainRes = await ffetch(`https://api.login.page/domains?app_id=${appId}`)
         domainRes = await domainRes.json()
         customDomain = domainRes.name
     } catch (e) {

@@ -1,9 +1,9 @@
 import { appId, protocol, host } from './configure'
-import fetch from 'node-fetch'
+import ffetch from './fetch'
 
 async function authorize(publicKey, secretKey, scope) {
     try {
-        const res = await fetch(`${protocol}api.${host}/keys/${publicKey}/authorize`, {
+        const res = await ffetch(`${protocol}api.${host}/keys/${publicKey}/authorize`, {
             method: 'POST',
             body: JSON.stringify({ 
                 'app_id': appId, 

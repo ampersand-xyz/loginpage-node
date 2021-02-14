@@ -1,11 +1,12 @@
 import { protocol, host } from './configure'
 import getCurrentUser from './getCurrentUser'
 import { getIdToken } from './utils'
+import ffetch from './fetch'
 
 async function listKeyPairs() {
     try {
         const idToken = getIdToken()
-        const res = await fetch(`${protocol}api.${host}/keys`, {
+        const res = await ffetch(`${protocol}api.${host}/keys`, {
             headers: {
                 'Authorization': 'Bearer ' + idToken,
             }
