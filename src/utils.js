@@ -10,7 +10,7 @@ function getIdToken(context) {
         const Cookies = require('cookies')
         const cookies = new Cookies(context.req, context.res)
         idToken = cookies.get('auth-idtoken')
-    } else if (localStorage !== undefined) {
+    } else if (typeof localStorage !== undefined) {
         const authState = JSON.parse(localStorage.getItem('auth-session'))
         if (!authState) return null
         idToken = authState.id_token
