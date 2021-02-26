@@ -3,9 +3,9 @@ import getCurrentUser from './getCurrentUser'
 import { getIdToken } from './utils'
 import ffetch from './fetch'
 
-async function listKeyPairs() {
+async function listKeyPairs(context) {
     try {
-        const idToken = getIdToken()
+        const idToken = getIdToken(context)
         const res = await ffetch(`${protocol}api.${host}/keys`, {
             headers: {
                 'Authorization': 'Bearer ' + idToken,
